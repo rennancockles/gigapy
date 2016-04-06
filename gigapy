@@ -10,7 +10,6 @@ from PyQt4 import QtGui
 def close_app():
     conn.cursor.close()
     conn.close_connection()
-    print 'to saindo'
 
 if __name__ == '__main__':
 
