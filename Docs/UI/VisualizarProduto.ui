@@ -42,7 +42,7 @@
     <bool>true</bool>
    </attribute>
    <attribute name="horizontalHeaderDefaultSectionSize">
-    <number>200</number>
+    <number>160</number>
    </attribute>
    <attribute name="verticalHeaderVisible">
     <bool>false</bool>
@@ -60,6 +60,11 @@
    <column>
     <property name="text">
      <string>Descrição</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Valor</string>
     </property>
    </column>
    <column>

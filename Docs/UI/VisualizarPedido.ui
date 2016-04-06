@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>813</width>
+    <width>959</width>
     <height>354</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <rect>
      <x>10</x>
      <y>50</y>
-     <width>781</width>
+     <width>941</width>
      <height>192</height>
     </rect>
    </property>
@@ -103,6 +103,11 @@
    </column>
    <column>
     <property name="text">
+     <string>Valor do Produto</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
      <string>Fornecedor</string>
     </property>
    </column>
@@ -133,7 +138,7 @@
   <widget class="QLabel" name="lbTotal">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>570</x>
      <y>310</y>
      <width>91</width>
      <height>17</height>
@@ -146,7 +151,7 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>470</x>
+     <x>520</x>
      <y>310</y>
      <width>41</width>
      <height>17</height>
@@ -159,7 +164,7 @@
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>490</x>
      <y>280</y>
      <width>66</width>
      <height>17</height>
@@ -172,8 +177,8 @@
   <widget class="QPushButton" name="btnSair">
    <property name="geometry">
     <rect>
-     <x>700</x>
-     <y>320</y>
+     <x>840</x>
+     <y>310</y>
      <width>101</width>
      <height>27</height>
     </rect>
@@ -185,7 +190,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>480</x>
      <y>250</y>
      <width>81</width>
      <height>17</height>
@@ -263,7 +268,7 @@
   <widget class="QLabel" name="lbFrete">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>570</x>
      <y>250</y>
      <width>81</width>
      <height>17</height>
@@ -276,7 +281,7 @@
   <widget class="QLabel" name="lbDesconto">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>570</x>
      <y>280</y>
      <width>66</width>
      <height>17</height>
