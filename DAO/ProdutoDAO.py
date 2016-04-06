@@ -81,8 +81,8 @@ def find_by_id(id):
 
 
 def insert(produto):
-    base_query = "INSERT INTO produto (nome, descricao, idFornecedor) VALUES ('{}', '{}', '{}')"
-    query = base_query.format(produto.nome, produto.descricao, produto.fornecedor.id)
+    base_query = "INSERT INTO produto (nome, descricao, valor, idFornecedor) VALUES ('{}', '{}', '{}', '{}')"
+    query = base_query.format(produto.nome, produto.descricao, produto.valor, produto.fornecedor.id)
 
     conn.cursor.execute(query)
 
@@ -96,8 +96,8 @@ def insert(produto):
 
 
 def update(produto):
-    base_query = "UPDATE produto SET nome = '{}', descricao = '{}', idFornecedor = '{}' WHERE id = '{}'"
-    query = base_query.format(produto.nome, produto.descricao, produto.fornecedor.id, produto.id)
+    base_query = "UPDATE produto SET nome = '{}', descricao = '{}', valor = '{}', idFornecedor = '{}' WHERE id = '{}'"
+    query = base_query.format(produto.nome, produto.descricao, produto.valor, produto.fornecedor.id, produto.id)
     conn.cursor.execute(query)
 
     if not conn.cursor.rowcount:
