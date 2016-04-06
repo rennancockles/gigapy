@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from DAO.Connection import conn
-from Model.Telefone import Telefone
+from Model.TelefoneModel import Telefone
 
 
 def list():

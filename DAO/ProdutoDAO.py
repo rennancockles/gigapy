@@ -2,7 +2,7 @@
 
 from DAO.Connection import conn
 from DAO import FornecedorDAO
-from Model.Produto import Produto
+from Model.ProdutoModel import Produto
 
 
 def list():

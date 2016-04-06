@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from DAO.Connection import conn
-from Model.Email import Email
+from Model.EmailModel import Email
 
 
 def list():

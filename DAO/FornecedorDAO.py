@@ -2,7 +2,7 @@
 
 from DAO.Connection import conn
 from DAO import TelefoneDAO, EmailDAO
-from Model.Fornecedor import Fornecedor
+from Model.FornecedorModel import Fornecedor
 
 
 def list():

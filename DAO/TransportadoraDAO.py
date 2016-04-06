@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from DAO.Connection import conn
-from Model.Transportadora import Transportadora
+from Model.TransportadoraModel import Transportadora
 
 
 def list():
