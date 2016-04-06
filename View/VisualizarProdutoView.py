@@ -35,7 +35,7 @@ class Ui_VisualizarProduto(object):
         self.tblProduto.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.tblProduto.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         self.tblProduto.setObjectName(_fromUtf8("tblProduto"))
-        self.tblProduto.setColumnCount(4)
+        self.tblProduto.setColumnCount(5)
         self.tblProduto.setRowCount(0)
         item = QtGui.QTableWidgetItem()
         self.tblProduto.setHorizontalHeaderItem(0, item)
@@ -45,8 +45,10 @@ class Ui_VisualizarProduto(object):
         self.tblProduto.setHorizontalHeaderItem(2, item)
         item = QtGui.QTableWidgetItem()
         self.tblProduto.setHorizontalHeaderItem(3, item)
+        item = QtGui.QTableWidgetItem()
+        self.tblProduto.setHorizontalHeaderItem(4, item)
         self.tblProduto.horizontalHeader().setVisible(True)
-        self.tblProduto.horizontalHeader().setDefaultSectionSize(200)
+        self.tblProduto.horizontalHeader().setDefaultSectionSize(160)
         self.tblProduto.verticalHeader().setVisible(False)
 
         self.retranslateUi(VisualizarProduto)
@@ -61,5 +63,7 @@ class Ui_VisualizarProduto(object):
         item = self.tblProduto.horizontalHeaderItem(2)
         item.setText(_translate("VisualizarProduto", "Descrição", None))
         item = self.tblProduto.horizontalHeaderItem(3)
+        item.setText(_translate("VisualizarProduto", "Valor", None))
+        item = self.tblProduto.horizontalHeaderItem(4)
         item.setText(_translate("VisualizarProduto", "Fornecedor", None))
 

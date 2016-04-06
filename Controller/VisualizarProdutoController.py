@@ -30,6 +30,8 @@ class VisualizarProduto(QtGui.QMainWindow, VisualizarProdutoView.Ui_VisualizarPr
         self.tblProduto.setItem(row, 2, item)
         item = QtGui.QTableWidgetItem()
         self.tblProduto.setItem(row, 3, item)
+        item = QtGui.QTableWidgetItem()
+        self.tblProduto.setItem(row, 4, item)
 
         item = self.tblProduto.item(row, 0)
         item.setText(str(produto.id))
@@ -38,6 +40,8 @@ class VisualizarProduto(QtGui.QMainWindow, VisualizarProdutoView.Ui_VisualizarPr
         item = self.tblProduto.item(row, 2)
         item.setText(produto.descricao)
         item = self.tblProduto.item(row, 3)
+        item.setText(str(produto.valor))
+        item = self.tblProduto.item(row, 4)
         item.setText(produto.fornecedor.nome)
 
     def fill_produtos(self):
