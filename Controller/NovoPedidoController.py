@@ -40,12 +40,15 @@ class NovoPedido(QtGui.QMainWindow, NovoPedidoView.Ui_NovoPedido):
             QtGui.QMessageBox.warning(self, "Erro", "Nenhum item adicionado!")
             return
 
-
         nota_fiscal = self.tbNota.toPlainText()
         frete = self.frete
         desconto = self.desconto
         total = self.total
         transportadora = TransportadoraDAO.find_by_name(self.cbTransportadora.currentText())[0]
+
+        if nota_fiscal == '' or frete == '' or desconto == '' or total == '' or transportadora == '':
+            QtGui.QMessageBox.warning(self, "Erro", "Preencha os campos corretamente!")
+            return
 
         pedido = PedidoModel(id=self.parent.pedidoId, nota_fiscal=nota_fiscal, valor_frete=int(frete), desconto=desconto, valor_total=total, transportadora=transportadora)
         self.parent.pedidoId += 1
