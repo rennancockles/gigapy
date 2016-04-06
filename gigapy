@@ -1,0 +1,21 @@
+#!/usr/bin/python -B
+# -*- coding: utf-8 -*-
+
+from Controller import MainController
+from DAO.Connection import conn
+import sys
+from PyQt4 import QtGui
+
+
+def close_app():
+    conn.cursor.close()
+    conn.close_connection()
+    print 'to saindo'
+
+if __name__ == '__main__':
+
+    app = QtGui.QApplication(sys.argv)
+    main = MainController.Main()
+    main.show()
+    app.aboutToQuit.connect(close_app)
+    sys.exit(app.exec_())
