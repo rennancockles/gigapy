@@ -32,7 +32,7 @@ CREATE TABLE `email` (
   PRIMARY KEY (`id`),
   KEY `idFornecedor` (`idFornecedor`),
   CONSTRAINT `email_ibfk_1` FOREIGN KEY (`idFornecedor`) REFERENCES `fornecedor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `email` (
 
 LOCK TABLES `email` WRITE;
 /*!40000 ALTER TABLE `email` DISABLE KEYS */;
-INSERT INTO `email` VALUES (1,1,'forn1@fornecedora.com','email trabalho'),(2,2,'forn2@fornecedora.com','email trabalho'),(3,1,'forn1@lardocelar.com','residencial');
+INSERT INTO `email` VALUES (1,1,'forn1@fornecedora.com','email trabalho'),(2,2,'forn2@fornecedora.com','email trabalho'),(3,1,'forn1@lardocelar.com','residencial'),(4,3,'rfew','rra'),(5,3,'fefe','fefe');
 /*!40000 ALTER TABLE `email` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,7 +61,7 @@ CREATE TABLE `fornecedor` (
   `bairro` varchar(50) NOT NULL,
   `numero` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Tabela dos fornecedores';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Tabela dos fornecedores';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +70,7 @@ CREATE TABLE `fornecedor` (
 
 LOCK TABLES `fornecedor` WRITE;
 /*!40000 ALTER TABLE `fornecedor` DISABLE KEYS */;
-INSERT INTO `fornecedor` VALUES (1,'forn_1','primeiro fornecedor','friburgo','rua das couves','centro',123),(2,'forn_2','segundo fornecedor','rio','rua de janeiro','praiana',321);
+INSERT INTO `fornecedor` VALUES (1,'forn_1','primeiro fornecedor','friburgo','rua das couves','centro',123),(2,'forn_2','segundo fornecedor','rio','rua de janeiro','praiana',321),(3,'Rennan','forn','sasa','dsads','fdga',0);
 /*!40000 ALTER TABLE `fornecedor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,11 +85,12 @@ CREATE TABLE `produto` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
   `descricao` varchar(255) NOT NULL,
+  `valor` float NOT NULL,
   `idFornecedor` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idFornecedor` (`idFornecedor`),
   CONSTRAINT `produto_ibfk_1` FOREIGN KEY (`idFornecedor`) REFERENCES `fornecedor` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +99,7 @@ CREATE TABLE `produto` (
 
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
-INSERT INTO `produto` VALUES (5,'biqueira','biquinho',1),(6,'agulha','fura bem',1),(7,'tinta','aquela que pinta',2),(8,'alcool','em gel',2);
+INSERT INTO `produto` VALUES (5,'biqueira','bicada',1,1),(6,'agulha','fura bem',2,1),(7,'tinta','aquela que pinta',4,2),(8,'alcool','em gel',5,2),(9,'ewew','ewew',10,1),(16,'Absolut','Bebida forte',2,1),(17,'Cabelo','Pixaim',50,2),(18,'bacia','de agua',12,1);
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,7 +119,7 @@ CREATE TABLE `telefone` (
   PRIMARY KEY (`id`),
   KEY `idFornecedor` (`idFornecedor`),
   CONSTRAINT `telefone_ibfk_1` FOREIGN KEY (`idFornecedor`) REFERENCES `fornecedor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,7 +128,7 @@ CREATE TABLE `telefone` (
 
 LOCK TABLES `telefone` WRITE;
 /*!40000 ALTER TABLE `telefone` DISABLE KEYS */;
-INSERT INTO `telefone` VALUES (1,1,'22','975184699','celular claro'),(2,1,'22','35122000','residencial'),(3,2,'21','991182537','celular vivo');
+INSERT INTO `telefone` VALUES (1,1,'22','975184699','celular claro'),(2,1,'22','35122000','residencial'),(3,2,'21','991182537','celular vivo'),(4,2,'21','22650299','residencial'),(5,3,'22','22','22');
 /*!40000 ALTER TABLE `telefone` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,7 +143,7 @@ CREATE TABLE `transportadora` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,7 +152,7 @@ CREATE TABLE `transportadora` (
 
 LOCK TABLES `transportadora` WRITE;
 /*!40000 ALTER TABLE `transportadora` DISABLE KEYS */;
-INSERT INTO `transportadora` VALUES (1,'transportes s.a.'),(2,'vaptvupt');
+INSERT INTO `transportadora` VALUES (1,'transportes s.a.'),(2,'vaptvupt'),(3,'to chegando'),(4,'vai la'),(5,'vai la');
 /*!40000 ALTER TABLE `transportadora` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -164,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-04 22:06:31
+-- Dump completed on 2016-04-06 17:12:37
