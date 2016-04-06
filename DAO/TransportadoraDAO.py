@@ -98,4 +98,3 @@ def delete(transportadora):
         return
 
     conn.db.commit()
-

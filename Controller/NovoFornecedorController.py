@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from View import NovoFornecedorView
-from DAO import TelefoneDAO, EmailDAO, FornecedorDAO
+from DAO import FornecedorDAO
 from Model.TelefoneModel import Telefone
 from Model.EmailModel import Email
 from Model.FornecedorModel import Fornecedor
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui
 
 
 class NovoFornecedor(QtGui.QMainWindow, NovoFornecedorView.Ui_NovoFornecedor):

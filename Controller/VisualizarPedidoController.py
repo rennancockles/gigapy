@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from View import VisualizarPedidoView
-from DAO import ProdutoDAO, TransportadoraDAO
-from Model.PedidoModel import Pedido as PedidoModel
-from Model.ItemModel import Item
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui
 
 
 class VisualizarPedido(QtGui.QMainWindow, VisualizarPedidoView.Ui_VisualizarPedido):

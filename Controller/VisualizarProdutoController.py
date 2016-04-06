@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from View import VisualizarProdutoView
-from DAO import ProdutoDAO, TransportadoraDAO
-from Controller import NovoPedidoController, VisualizarPedidoController, NovaTransportadoraController, NovoProdutoController, NovoFornecedorController
-from PyQt4 import QtGui, QtCore
+from DAO import ProdutoDAO
+from PyQt4 import QtGui
 
 
 class VisualizarProduto(QtGui.QMainWindow, VisualizarProdutoView.Ui_VisualizarProduto):
@@ -41,14 +40,8 @@ class VisualizarProduto(QtGui.QMainWindow, VisualizarProdutoView.Ui_VisualizarPr
         item = self.tblProduto.item(row, 3)
         item.setText(produto.fornecedor.nome)
 
-    def visualizar_pedido(self):
-        pedidoId = self.tblProduto.item(self.tblProduto.currentRow(), 0).text()
-        visualizarPedido = VisualizarPedidoController.VisualizarPedido(self, self.pedidos[int(pedidoId)])
-        visualizarPedido.show()
-
     def fill_produtos(self):
         produtos = ProdutoDAO.list()
 
         for produto in produtos:
             self.add_item(produto)
-

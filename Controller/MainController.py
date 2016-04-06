@@ -3,7 +3,7 @@
 from View import MainView
 from Controller import NovoPedidoController, NovaTransportadoraController, NovoProdutoController, NovoFornecedorController
 from Controller import VisualizarPedidoController, VisualizarProdutoController, VisualizarFornecedorController, VisualizarTransportadoraController
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui
 
 
 class Main(QtGui.QMainWindow, MainView.Ui_MainWindow):

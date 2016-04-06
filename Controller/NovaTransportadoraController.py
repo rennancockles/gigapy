@@ -3,7 +3,7 @@
 from View import NovaTransportadoraView
 from DAO import TransportadoraDAO
 from Model.TransportadoraModel import Transportadora
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui
 
 
 class NovaTransportadora(QtGui.QMainWindow, NovaTransportadoraView.Ui_NovaTransportadora):

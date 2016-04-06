@@ -122,17 +122,3 @@ def delete(telefone):
         return
 
     conn.db.commit()
-
-
-# list()
-# find_by_numero('975184699')
-# t = find_by_id(4)
-# t.referencia = 'de casa'
-# update(t)
-# delete(4)
-
-# t = Telefone(ddd='24', numero='25256363', referencia='tel doido')
-# insert(2, t)
-# list()
-#
-# conn.close_connection()

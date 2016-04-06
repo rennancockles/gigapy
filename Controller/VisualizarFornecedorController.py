@@ -2,8 +2,7 @@
 
 from View import VisualizarFornecedorView
 from DAO import TelefoneDAO, EmailDAO, FornecedorDAO
-from Controller import NovoPedidoController, VisualizarPedidoController, NovaTransportadoraController, NovoProdutoController, NovoFornecedorController
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui
 
 
 class VisualizarFornecedor(QtGui.QMainWindow, VisualizarFornecedorView.Ui_VisualizarFornecedor):
@@ -97,11 +96,6 @@ class VisualizarFornecedor(QtGui.QMainWindow, VisualizarFornecedorView.Ui_Visual
         item.setText(email.email)
         item = self.tblEmail.item(row, 1)
         item.setText(email.referencia)
-
-    def visualizar_pedido(self):
-        pedidoId = self.tblFornecedor.item(self.tblFornecedor.currentRow(), 0).text()
-        visualizarPedido = VisualizarPedidoController.VisualizarPedido(self, self.pedidos[int(pedidoId)])
-        visualizarPedido.show()
 
     def fill_fornecedores(self):
         fornecedores = FornecedorDAO.list()

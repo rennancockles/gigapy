@@ -121,17 +121,3 @@ def delete(email):
         return
 
     conn.db.commit()
-
-
-# list()
-# find_by_email("forn1@lardocelar.com")
-# e = find_by_id(4)
-# e.referencia = 'meu mesmo'
-# update(e)
-# delete(4)
-
-# e = Email(email='eu@me.com', referencia='meu mesmo')
-# insert(2, e)
-# list()
-
-# conn.close_connection()

@@ -4,7 +4,7 @@ from View import NovoPedidoView
 from DAO import ProdutoDAO, TransportadoraDAO
 from Model.PedidoModel import Pedido as PedidoModel
 from Model.ItemModel import Item
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui
 
 
 class NovoPedido(QtGui.QMainWindow, NovoPedidoView.Ui_NovoPedido):

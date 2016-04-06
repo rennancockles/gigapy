@@ -3,7 +3,7 @@
 from View import NovoProdutoView
 from DAO import ProdutoDAO, FornecedorDAO
 from Model.ProdutoModel import Produto
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui
 
 
 class NovoProduto(QtGui.QMainWindow, NovoProdutoView.Ui_NovoProduto):
