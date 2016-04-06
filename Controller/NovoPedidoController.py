@@ -155,6 +155,7 @@ class NovoPedido(QtGui.QMainWindow, NovoPedidoView.Ui_NovoPedido):
     def remove_item(self):
         row = self.tblItem.currentRow()
         self.row_count -= 1
+        self.itens.pop(row)
 
         qtd = self.tblItem.item(row, 1).text()
         valor = self.tblItem.item(row, 2).text()
