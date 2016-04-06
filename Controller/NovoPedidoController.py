@@ -28,6 +28,7 @@ class NovoPedido(QtGui.QMainWindow, NovoPedidoView.Ui_NovoPedido):
         self.btnSalvar.clicked.connect(self.salvar_pedido)
         self.btnAdd.clicked.connect(self.add_item)
         self.btnRemove.clicked.connect(self.remove_item)
+        self.btnCalcular.clicked.connect(self.calcular_total)
 
     def close_view(self):
         self.close()
@@ -172,3 +173,24 @@ class NovoPedido(QtGui.QMainWindow, NovoPedidoView.Ui_NovoPedido):
         self.total -= (parsed_valor * parsed_qtd)
         self.lbTotal.setText(str(self.total))
         self.tblItem.removeRow(row)
+
+    def calcular_total(self):
+        desconto = self.tbDesconto.toPlainText()
+        frete = self.tbFrete.toPlainText()
+        print frete
+        parsed_desconto = 0
+        parsed_frete = 0
+
+        if desconto != '':
+            parsed_desconto = self.parse_valor(desconto)
+
+        if frete != '':
+            parsed_frete = self.parse_valor(frete)
+            print parsed_frete
+
+        if parsed_desconto is None or parsed_frete is None:
+            return
+
+        total = self.total - parsed_desconto + parsed_frete
+
+        self.lbTotal.setText(str(total))

@@ -105,8 +105,11 @@ class NovoFornecedor(QtGui.QMainWindow, NovoFornecedorView.Ui_NovoFornecedor):
         self.tblTelefone.removeRow(row)
 
     def add_email(self):
-        email = self.tbEmail.toPlainText()
+        email = self.verify_email(self.tbEmail.toPlainText())
         referencia = self.tbEmailReferencia.toPlainText()
+
+        if email is None:
+            return
 
         if email == '' or referencia == '':
             QtGui.QMessageBox.warning(self, "Erro", "Preencha os campos corretamente!")
@@ -151,3 +154,15 @@ class NovoFornecedor(QtGui.QMainWindow, NovoFornecedorView.Ui_NovoFornecedor):
         except:
             QtGui.QMessageBox.warning(self, "Erro", "Numero deve ser do tipo inteiro!".format(string))
             return
+
+    def verify_email(self, email):
+        import re
+
+        addressToVerify =email
+        match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', addressToVerify)
+
+        if match is None:
+            QtGui.QMessageBox.warning(self, "Erro", "Email invalido!")
+            return None
+        else:
+            return email
