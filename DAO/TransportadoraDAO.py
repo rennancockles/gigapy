@@ -5,7 +5,7 @@ from Model.Transportadora import Transportadora
 
 
 def list():
-    query = "SELECT * FROM transportadora"
+    query = "SELECT * FROM transportadora ORDER BY nome"
     conn.cursor.execute(query)
 
     if not conn.cursor.rowcount:
@@ -19,7 +19,6 @@ def list():
         transportadora = Transportadora()
         transportadora.from_db(columns, row)
         transportadoras.append(transportadora)
-        print transportadora
 
     return transportadoras
 
@@ -40,7 +39,6 @@ def find_by_name(name):
         transportadora = Transportadora()
         transportadora.from_db(columns, row)
         transportadoras.append(transportadora)
-        print transportadora
 
     return transportadoras
 
@@ -59,7 +57,6 @@ def find_by_id(id):
 
     transportadora = Transportadora()
     transportadora.from_db(columns, row)
-    print transportadora
 
     return transportadora
 
@@ -75,7 +72,6 @@ def insert(transportadora):
         return
 
     idTransportadora = conn.cursor.lastrowid
-    print idTransportadora
 
     conn.db.commit()
 
@@ -103,16 +99,3 @@ def delete(transportadora):
 
     conn.db.commit()
 
-
-# list()
-# find_by_name("vaptvupt")
-# t = find_by_id(3)
-# t.nome = 'ta chegando'
-# update(t)
-# delete(3)
-
-# t = Transportadora(nome='chegaja')
-# insert(t)
-# list()
-
-# conn.close_connection()

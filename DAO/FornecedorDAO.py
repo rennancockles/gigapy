@@ -6,7 +6,7 @@ from Model.Fornecedor import Fornecedor
 
 
 def list():
-    query = "SELECT * FROM fornecedor"
+    query = "SELECT * FROM fornecedor ORDER BY nome"
     conn.cursor.execute(query)
 
     if not conn.cursor.rowcount:
@@ -27,7 +27,6 @@ def list():
         fornecedor.add_telefones(telefones)
 
         fornecedores.append(fornecedor)
-        print fornecedor
 
     return fornecedores
 
@@ -55,7 +54,6 @@ def find_by_name(name):
         fornecedor.add_telefones(telefones)
 
         fornecedores.append(fornecedor)
-        print fornecedor
 
     return fornecedores
 
@@ -81,7 +79,6 @@ def find_by_id(id):
     fornecedor.add_emails(emails)
     fornecedor.add_telefones(telefones)
 
-    print fornecedor
 
     return fornecedor
 
@@ -130,21 +127,3 @@ def delete(fornecedor):
 
     conn.db.commit()
 
-
-# list()
-# find_by_name('forn_2')
-# f = find_by_id(14)
-# f.bairro = 'serrano'
-# update(f)
-# delete(find_by_id(15))
-
-# f = Fornecedor(nome='forn_3', descricao='terceiro fornecedor', cidade='teresopis', endereco='rua de teresa', bairro='alto', numero=171)
-# t = Telefone(ddd='24', numero='25256363', referencia='tel doido')
-# e = Email(email='eu@me.com', referencia='meu mesmo')
-# f.add_telefones(t)
-# f.add_emails(e)
-# insert(f)
-
-# list()
-
-# conn.close_connection()

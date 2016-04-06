@@ -6,7 +6,7 @@ from Model.Produto import Produto
 
 
 def list():
-    query = "SELECT * FROM produto"
+    query = "SELECT * FROM produto ORDER BY nome"
     conn.cursor.execute(query)
 
     if not conn.cursor.rowcount:
@@ -26,7 +26,6 @@ def list():
         produto.add_fornecedor(fornecedor)
 
         produtos.append(produto)
-        print produto
 
     return produtos
 
@@ -53,7 +52,6 @@ def find_by_name(name):
         produto.add_fornecedor(fornecedor)
 
         produtos.append(produto)
-        print produto
 
     return produtos
 
@@ -78,7 +76,6 @@ def find_by_id(id):
 
     produto.add_fornecedor(fornecedor)
 
-    print produto
 
     return produto
 
@@ -121,17 +118,3 @@ def delete(produto):
 
     conn.db.commit()
 
-
-# list()
-# find_by_name('tinta')
-# p = find_by_id(11)
-# p.descricao = 'Vodka doida'
-# update(p)
-# delete(find_by_id(10))
-
-# f = FornecedorDAO.find_by_id(1)
-# p = Produto(nome='Absolut', descricao='Bebida forte', fornecedor=f)
-# insert(p)
-# list()
-
-# conn.close_connection()
