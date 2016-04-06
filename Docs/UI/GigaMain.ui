@@ -154,6 +154,8 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionNovoPedido"/>
+   <addaction name="separator"/>
+   <addaction name="actionRemoverPedido"/>
   </widget>
   <action name="actionProduto">
    <property name="text">
@@ -204,6 +206,14 @@
   <action name="actionVisualizarFornecedor">
    <property name="text">
     <string>Visualizar</string>
+   </property>
+  </action>
+  <action name="actionRemoverPedido">
+   <property name="text">
+    <string>Remover Pedido</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
    </property>
   </action>
  </widget>

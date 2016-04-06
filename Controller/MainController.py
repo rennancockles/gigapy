@@ -17,6 +17,8 @@ class Main(QtGui.QMainWindow, MainView.Ui_MainWindow):
         self.pedidos = []
 
         self.actionNovoPedido.triggered.connect(self.novoPedido)
+        self.actionRemoverPedido.triggered.connect(self.removerPedido)
+
         self.actionNovoTransportadora.triggered.connect(self.novaTransportadora)
         self.actionNovoFornecedor.triggered.connect(self.novoFornecedor)
         self.actionNovoProduto.triggered.connect(self.novoProduto)
@@ -95,5 +97,12 @@ class Main(QtGui.QMainWindow, MainView.Ui_MainWindow):
         visualizarPedido = VisualizarPedidoController.VisualizarPedido(self, self.pedidos[int(pedidoId)])
         visualizarPedido.show()
 
+    def removerPedido(self):
+        if len(self.pedidos) == 0:
+            return
 
+        row = self.tblPedido.currentRow()
+        self.row_count -= 1
+        self.pedidos.pop(row)
+        self.tblPedido.removeRow(row)
 

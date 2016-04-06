@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 
+# Form implementation generated from reading ui file 'GigaMain.ui'
+#
+# Created: Wed Apr  6 02:20:49 2016
+#      by: PyQt4 UI code generator 4.10.4
+#
+# WARNING! All changes made in this file will be lost!
+
 from PyQt4 import QtCore, QtGui
 
 try:
@@ -15,7 +22,6 @@ try:
 except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -50,6 +56,8 @@ class Ui_MainWindow(object):
         self.tblPedido.setObjectName(_fromUtf8("tblPedido"))
         self.tblPedido.setColumnCount(6)
         self.tblPedido.setRowCount(0)
+        self.tblPedido.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.tblPedido.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
         item = QtGui.QTableWidgetItem()
         self.tblPedido.setHorizontalHeaderItem(0, item)
         item = QtGui.QTableWidgetItem()
@@ -103,8 +111,6 @@ class Ui_MainWindow(object):
         self.actionNovoFornecedor.setObjectName(_fromUtf8("actionNovoFornecedor"))
         self.actionVisualizarFornecedor = QtGui.QAction(MainWindow)
         self.actionVisualizarFornecedor.setObjectName(_fromUtf8("actionVisualizarFornecedor"))
-        self.actionRemoverPedido = QtGui.QAction(MainWindow)
-        self.actionRemoverPedido.setObjectName(_fromUtf8("actionRemoverPedido"))
         self.menuProduto.addAction(self.actionNovoProduto)
         self.menuProduto.addAction(self.actionVisualizarProduto)
         self.menuTransportadora.addAction(self.actionNovoTransportadora)
@@ -116,8 +122,6 @@ class Ui_MainWindow(object):
         self.menuCadastros.addAction(self.menuTransportadora.menuAction())
         self.menubar.addAction(self.menuCadastros.menuAction())
         self.toolBar.addAction(self.actionNovoPedido)
-        self.toolBar.addSeparator()
-        self.toolBar.addAction(self.actionRemoverPedido)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -152,6 +156,4 @@ class Ui_MainWindow(object):
         self.actionVisualizarTransportadora.setText(_translate("MainWindow", "Visualizar", None))
         self.actionNovoFornecedor.setText(_translate("MainWindow", "Novo", None))
         self.actionVisualizarFornecedor.setText(_translate("MainWindow", "Visualizar", None))
-        self.actionRemoverPedido.setText(_translate("MainWindow", "Remover Pedido", None))
-        self.actionRemoverPedido.setShortcut(_translate("MainWindow", "Del", None))
 
