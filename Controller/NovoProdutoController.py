@@ -20,14 +20,21 @@ class NovoProduto(QtGui.QMainWindow, NovoProdutoView.Ui_NovoProduto):
         self.close()
 
     def salvar(self):
-        if self.tbNome.toPlainText() == '':
-            return
-
         nome = self.tbNome.toPlainText()
-        desc = self.tbDescricao.toPlainText()
+        descricao = self.tbDescricao.toPlainText()
+        valor = self.tbValor.toPlainText()
         fornecedor = FornecedorDAO.find_by_name(self.cbFornecedor.currentText())[0]
 
-        produto = Produto(nome=nome, descricao=desc, fornecedor=fornecedor)
+        if nome == '' or descricao == '' or valor == '':
+            QtGui.QMessageBox.warning(self, "Erro", "Preencha os campos corretamente!")
+            return
+
+        parsed_valor = self.parse_valor(valor)
+
+        if parsed_valor is None:
+            return
+
+        produto = Produto(nome=nome, descricao=descricao, valor=parsed_valor, fornecedor=fornecedor)
         ProdutoDAO.insert(produto)
 
         self.close_view()
@@ -37,3 +44,11 @@ class NovoProduto(QtGui.QMainWindow, NovoProdutoView.Ui_NovoProduto):
 
         for item in items:
             self.cbFornecedor.addItem(item.nome)
+
+    def parse_valor(self, string):
+        try:
+            i = float(string.replace(',', '.'))
+            return i
+        except:
+            QtGui.QMessageBox.warning(self, "Erro", "Valor deve ser do tipo float!".format(string))
+            return
