@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'NovoPedido.ui'
+# Form implementation generated from reading ui file 'Docs/UI/NovoPedido.ui'
 #
-# Created: Wed Apr  6 03:22:31 2016
+# Created: Wed Apr  6 06:05:42 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -134,6 +134,9 @@ class Ui_NovoPedido(object):
         self.btnRemove = QtGui.QPushButton(NovoPedido)
         self.btnRemove.setGeometry(QtCore.QRect(330, 230, 61, 27))
         self.btnRemove.setObjectName(_fromUtf8("btnRemove"))
+        self.btnCalcular = QtGui.QPushButton(NovoPedido)
+        self.btnCalcular.setGeometry(QtCore.QRect(20, 300, 71, 27))
+        self.btnCalcular.setObjectName(_fromUtf8("btnCalcular"))
 
         self.retranslateUi(NovoPedido)
         QtCore.QMetaObject.connectSlotsByName(NovoPedido)
@@ -159,4 +162,5 @@ class Ui_NovoPedido(object):
         self.label_7.setText(_translate("NovoPedido", "Quantidade:", None))
         self.label_3.setText(_translate("NovoPedido", "Novo Item:", None))
         self.btnRemove.setText(_translate("NovoPedido", "Remove", None))
+        self.btnCalcular.setText(_translate("NovoPedido", "Calcular", None))
 
