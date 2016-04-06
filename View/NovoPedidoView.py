@@ -1,12 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'Docs/UI/NovoPedido.ui'
-#
-# Created: Wed Apr  6 06:05:42 2016
-#      by: PyQt4 UI code generator 4.10.4
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt4 import QtCore, QtGui
 
 try:
@@ -122,15 +115,16 @@ class Ui_NovoPedido(object):
         self.btnAdd = QtGui.QPushButton(self.frame)
         self.btnAdd.setGeometry(QtCore.QRect(250, 130, 41, 27))
         self.btnAdd.setObjectName(_fromUtf8("btnAdd"))
-        self.tbValor = QtGui.QPlainTextEdit(self.frame)
-        self.tbValor.setGeometry(QtCore.QRect(240, 80, 51, 31))
-        self.tbValor.setObjectName(_fromUtf8("tbValor"))
         self.label_7 = QtGui.QLabel(self.frame)
         self.label_7.setGeometry(QtCore.QRect(20, 90, 91, 17))
         self.label_7.setObjectName(_fromUtf8("label_7"))
         self.label_3 = QtGui.QLabel(self.frame)
         self.label_3.setGeometry(QtCore.QRect(20, 30, 81, 17))
         self.label_3.setObjectName(_fromUtf8("label_3"))
+        self.lbValor = QtGui.QLabel(self.frame)
+        self.lbValor.setGeometry(QtCore.QRect(250, 90, 61, 17))
+        self.lbValor.setText(_fromUtf8(""))
+        self.lbValor.setObjectName(_fromUtf8("lbValor"))
         self.btnRemove = QtGui.QPushButton(NovoPedido)
         self.btnRemove.setGeometry(QtCore.QRect(330, 230, 61, 27))
         self.btnRemove.setObjectName(_fromUtf8("btnRemove"))

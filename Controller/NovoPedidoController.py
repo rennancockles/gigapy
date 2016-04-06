@@ -12,6 +12,7 @@ class NovoPedido(QtGui.QMainWindow, NovoPedidoView.Ui_NovoPedido):
         super(NovoPedido, self).__init__(parent)
         self.setupUi(self)
         self.parent = parent
+        self.produtos = []
 
         self.row_count = 0
 
@@ -23,6 +24,9 @@ class NovoPedido(QtGui.QMainWindow, NovoPedidoView.Ui_NovoPedido):
         self.fill_item_combo()
         self.fill_transportadora_combo()
         self.lbTotal.setText(str(self.total))
+        self.change_value()
+
+        self.cbItem.currentIndexChanged.connect(self.change_value)
 
         self.btnCancelar.clicked.connect(self.close_view)
         self.btnSalvar.clicked.connect(self.salvar_pedido)
@@ -61,6 +65,7 @@ class NovoPedido(QtGui.QMainWindow, NovoPedidoView.Ui_NovoPedido):
 
     def fill_item_combo(self):
         items = ProdutoDAO.list()
+        self.produtos = items
 
         for item in items:
             self.cbItem.addItem(item.nome)
@@ -72,7 +77,7 @@ class NovoPedido(QtGui.QMainWindow, NovoPedidoView.Ui_NovoPedido):
             self.cbTransportadora.addItem(item.nome)
 
     def add_item(self):
-        valor = self.tbValor.toPlainText()
+        valor = self.lbValor.text()
         qtd = self.tbQtd.toPlainText()
 
         if qtd == '' or valor == '':
@@ -109,10 +114,9 @@ class NovoPedido(QtGui.QMainWindow, NovoPedidoView.Ui_NovoPedido):
         item = self.tblItem.item(row, 1)
         item.setText(qtd)
         item = self.tblItem.item(row, 2)
-        item.setText(valor)
+        item.setText(str(parsed_valor * parsed_qtd))
 
         self.tbQtd.clear()
-        self.tbValor.clear()
 
         self.total += (parsed_valor * parsed_qtd)
         self.lbTotal.setText(str(self.total))
@@ -161,19 +165,14 @@ class NovoPedido(QtGui.QMainWindow, NovoPedidoView.Ui_NovoPedido):
         self.row_count -= 1
         self.itens.pop(row)
 
-        qtd = self.tblItem.item(row, 1).text()
         valor = self.tblItem.item(row, 2).text()
 
-        print qtd
-        print valor
-
-        parsed_qtd = self.parse_qtd(qtd)
         parsed_valor = self.parse_valor(valor)
 
-        if parsed_qtd is None or parsed_valor is None:
+        if parsed_valor is None:
             return
 
-        self.total -= (parsed_valor * parsed_qtd)
+        self.total -= parsed_valor
         self.lbTotal.setText(str(self.total))
         self.tblItem.removeRow(row)
 
@@ -197,3 +196,8 @@ class NovoPedido(QtGui.QMainWindow, NovoPedidoView.Ui_NovoPedido):
         total = self.total - parsed_desconto + parsed_frete
 
         self.lbTotal.setText(str(total))
+
+    def change_value(self):
+        produto = self.produtos[self.cbItem.currentIndex()]
+        valor = produto.valor
+        self.lbValor.setText(str(valor))
