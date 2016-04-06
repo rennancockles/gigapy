@@ -49,16 +49,20 @@ class VisualizarPedido(QtGui.QMainWindow, VisualizarPedidoView.Ui_VisualizarPedi
         self.tblItem.setItem(row, 3, item)
         item = QtGui.QTableWidgetItem()
         self.tblItem.setItem(row, 4, item)
+        item = QtGui.QTableWidgetItem()
+        self.tblItem.setItem(row, 5, item)
 
         item = self.tblItem.item(row, 0)
         item.setText(addedItem.produto.nome)
         item = self.tblItem.item(row, 1)
         item.setText(addedItem.produto.descricao)
         item = self.tblItem.item(row, 2)
-        item.setText(addedItem.produto.fornecedor.nome)
+        item.setText(str(addedItem.produto.valor))
         item = self.tblItem.item(row, 3)
-        item.setText(str(addedItem.quantidade))
+        item.setText(addedItem.produto.fornecedor.nome)
         item = self.tblItem.item(row, 4)
+        item.setText(str(addedItem.quantidade))
+        item = self.tblItem.item(row, 5)
         item.setText(str(addedItem.valor))
 
     def parse_qtd(self, string):
