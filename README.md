@@ -1,4 +1,4 @@
-# VisionStore
+# GigaPy
 
 Software desenvolvido como teste no processo seletivo da Gigalink. Para o desenvolvimento foram utilizados os seguintes recursos:
 
