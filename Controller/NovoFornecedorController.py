@@ -59,9 +59,12 @@ class NovoFornecedor(QtGui.QMainWindow, NovoFornecedorView.Ui_NovoFornecedor):
         self.close_view()
 
     def add_telefone(self):
-        ddd = self.tbTelefoneDDD.toPlainText()
-        numero = self.tbTelefoneNumero.toPlainText()
+        ddd = self.verify_ddd(self.tbTelefoneDDD.toPlainText())
+        numero = self.verify_telefone(self.tbTelefoneNumero.toPlainText())
         referencia = self.tbTelefoneReferencia.toPlainText()
+
+        if numero is None or ddd is None:
+            return
 
         if ddd == '' or numero == '' or referencia == '':
             QtGui.QMessageBox.warning(self, "Erro", "Preencha os campos corretamente!")
@@ -158,7 +161,7 @@ class NovoFornecedor(QtGui.QMainWindow, NovoFornecedorView.Ui_NovoFornecedor):
     def verify_email(self, email):
         import re
 
-        addressToVerify =email
+        addressToVerify = email
         match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', addressToVerify)
 
         if match is None:
@@ -166,3 +169,27 @@ class NovoFornecedor(QtGui.QMainWindow, NovoFornecedorView.Ui_NovoFornecedor):
             return None
         else:
             return email
+
+    def verify_telefone(self, telefone):
+        import re
+
+        addressToVerify = telefone
+        match = re.match('(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})', addressToVerify)
+
+        if match is None:
+            QtGui.QMessageBox.warning(self, "Erro", "Telefone invalido!")
+            return None
+        else:
+            return telefone
+
+    def verify_ddd(self, ddd):
+        import re
+
+        addressToVerify = ddd
+        match = re.match('^\d{2}$', addressToVerify)
+
+        if match is None:
+            QtGui.QMessageBox.warning(self, "Erro", "DDD invalido!")
+            return None
+        else:
+            return ddd
