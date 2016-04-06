@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from View import MainView
-from Controller import NovoPedidoController, VisualizarPedidoController, NovaTransportadoraController, NovoProdutoController, NovoFornecedorController
+from Controller import NovoPedidoController, NovaTransportadoraController, NovoProdutoController, NovoFornecedorController
+from Controller import VisualizarPedidoController, VisualizarProdutoController, VisualizarFornecedorController
 from PyQt4 import QtGui, QtCore
 
 
@@ -19,6 +20,9 @@ class Main(QtGui.QMainWindow, MainView.Ui_MainWindow):
         self.actionNovoTransportadora.triggered.connect(self.novaTransportadora)
         self.actionNovoFornecedor.triggered.connect(self.novoFornecedor)
         self.actionNovoProduto.triggered.connect(self.novoProduto)
+
+        self.actionVisualizarProduto.triggered.connect(self.visualizarProduto)
+        self.actionVisualizarFornecedor.triggered.connect(self.visualizarFornecedor)
 
         self.tblPedido.itemDoubleClicked.connect(self.visualizar_pedido)
         self.update()
@@ -38,6 +42,14 @@ class Main(QtGui.QMainWindow, MainView.Ui_MainWindow):
     def novoFornecedor(self):
         novoFornecedor = NovoFornecedorController.NovoFornecedor(self)
         novoFornecedor.show()
+
+    def visualizarProduto(self):
+        visualizarProduto = VisualizarProdutoController.VisualizarProduto(self)
+        visualizarProduto.show()
+
+    def visualizarFornecedor(self):
+        visualizarFornecedor = VisualizarFornecedorController.VisualizarFornecedor(self)
+        visualizarFornecedor.show()
 
     def add_item(self, pedido):
         row = self.row_count
